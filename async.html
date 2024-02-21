@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Callback and Async Functions Demo</title>
+</head>
+<body>
+<script>
+function fetchData(callback) {
+setTimeout(() => {
+const data = "Async data received!";
+callback(data);
+}, 2000);
+}
+// Callback function
+function processAsyncData(data) {
+console.log("Processing data:", data);
+}
+fetchData(processAsyncData);
+// Async function example
+async function fetchDataAsync() {
+return new Promise(resolve => {
+setTimeout(() => {
+    const data = "Async data received using async function!";
+resolve(data);
+}, 2000);
+});
+}
+async function processDataAsync() {
+const data = await fetchDataAsync();
+console.log("Processing data (async):", data);
+}
+processDataAsync();
+</script>
+</body>
+</html>

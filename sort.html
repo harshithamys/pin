@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>Array Sorting</title>
+</head>
+<body>
+<script>
+var inputArray = [];
+var size = 5; //Maximum Array size
+for(var i=0; i<size; i++) {
+inputArray[i] = prompt('Enter Element ' + (i+1));
+}
+document.write("Unsorted array elements : " + inputArray);
+document.write("<br><br>");
+let sortedArray = inputArray.sort((a, b) => a - b);
+document.write("Sorted array elements: " + sortedArray);
+</script>
+</body>
+</html>

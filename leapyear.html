@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leap Year Check</title>
+</head>
+<body>
+    <script>
+        const isLeapYear = year => {
+        // Check if the year is divisible by 4
+        if (year % 4 === 0) {
+        // If it's divisible by 100 and not divisible by 400, it's not a leap year
+        if (year % 100 === 0 && year % 400 !== 0) {
+        return false; // Not a leap year
+        } else {
+        return true; // Leap year
+        }
+        } else {
+        return false; // Not a leap year
+        }
+        };
+        const alertLeapYear = year => {
+        const result = isLeapYear(year);
+        alert(`${year} is a leap year: ${result}`);
+        };
+        alertLeapYear(2000); // Leap year
+        alertLeapYear(2100); // Non-leap year
+        alertLeapYear(2004); // Leap year
+        alertLeapYear(2006); // Non-leap year
+        </script>
+        </body>
+        </html>

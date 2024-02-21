@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rectangle Class</title>
+</head>
+<body>
+<script>
+class Rectangle {
+constructor(length, breadth) {
+this.length = length;
+this.breadth = breadth;
+}
+calculateArea() {
+return this.length * this.breadth;
+}
+}
+const rect = new Rectangle(5, 6);
+document.write("Input: length=" + rect.length + ", breadth=" +
+rect.breadth + "<br>");
+document.write("Output: Area=" + rect.calculateArea());
+</script>
+</body>
+</html>

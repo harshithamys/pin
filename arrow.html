@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    const calculateRectanglePerimeter = (...sides) => 2 *
+sides.reduce((length, breadth) => length + breadth, 0);
+const sidesArray = [4, 6];
+const perimeterUsingSpread =
+calculateRectanglePerimeter(...sidesArray);
+alert(`Perimeter of the rectangle using spread operator:
+${perimeterUsingSpread}`);
+const len = 5;
+const bred = 6;
+const perimeterUsingRest = calculateRectanglePerimeter(len, bred);
+
+alert(`Perimeter of the rectangle using rest operator:
+${perimeterUsingRest}`);
+</script>
+</body>
+</html>

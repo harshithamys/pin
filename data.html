@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Student Database</title>
+</head>
+<body>
+<h1>Student Database</h1>
+<ol id="studentsList"></ol>
+<script>
+fetch('http://localhost:3000/students')
+.then(response => response.json())
+.then(data => {
+const studentsList =
+document.getElementById('studentsList');
+data.forEach(student => {
+const li = document.createElement('li');
+li.textContent = `${student.studentname} ---
+${student.usn}`;
+studentsList.appendChild(li);
+});
+})
+.catch(error => console.error('Error:', error));
+</script>
+</body>
+
+</html>
+
+
+Server.js:
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
+const app = express();
+app.use(cors());
+const port = 3000;
+// Create MySQL connection
+const db = mysql.createConnection({
+host: 'localhost',
+user: 'root',
+password: 'password',
+database: 'student_db'
+});
+// Connect to MySQL
+db.connect((err) => {
+if (err) throw err;
+console.log('Connected to MySQL');
+});
+// API endpoint to fetch all students
+app.get('/students', (req, res) => {
+db.query('SELECT * FROM students', (err, result) => {
+if (err) throw err;
+res.json(result);
+});
+});
+// Start the server
+app.listen(port, () => {
+console.log(`Server is running on port ${port}`);
+
+});
+```
+
+SQL Query to create Database:
+CREATE DATABASE student_db;
+SHOW DATABASES;
+USE student_db;
+CREATE TABLE students (
+id INT AUTO_INCREMENT PRIMARY KEY,
+studentname VARCHAR(255) NOT NULL,
+usn VARCHAR(255) NOT NULL
+);
+INSERT INTO students (studentname, usn)
+VALUES
+('Jane', '789012'),
+('Alice', '345678'),
+('Bob', '901234');
+select * from students
+To fix the authentication error run this query in mySQL:
+ALTER USER 'root'@'localhost' IDENTIFIED WITH
+mysql_native_password BY 'password';
+flush privileges;
+Steps to run the program:
+1. Open command prompt from the program folder
+2. Install node.js (Download from chrome)
+3. npm init –y
+4. npm install express
+5. npm install cors
+6. npm install mysql
+7. node server.js
+8. Run index.html file

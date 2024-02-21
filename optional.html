@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+// Function with optional and default parameters
+function calculateTotal(price, quantity = 1, discount = 0) {
+const totalPrice = price * quantity * (1 - discount);
+return totalPrice;
+}
+const total1 = calculateTotal(20, 3, 0.1);
+console.log(`Total 1: ${total1}`); // Output: Total 1: 54
+// Calling the function with only the required parameters
+const total2 = calculateTotal(15);
+console.log(`Total 2: ${total2}`); // Output: Total 2: 15
+const total3 = calculateTotal(25, 2, 0.2);
+console.log(`Total 3: ${total3}`); // Output: Total 3: 40
+const total4 = calculateTotal(30, undefined, 0.15);
+console.log(`Total 4: ${total4}`); // Output: Total 4: 25.5
+</script>
+</body>
+</html>
