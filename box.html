@@ -1,7 +1,7 @@
 <html>
 <body>
 <script>
-// Base class
+
 class Box {
 constructor(length, breadth, height) {
 this.length = length;
@@ -9,21 +9,21 @@ this.breadth = breadth;
 this.height = height;
 }
 }
-// Derived class from Box
+
 class BoxWeight extends Box {
 constructor(length, breadth, height, weight) {
 super(length, breadth, height);
 this.weight = weight;
 }
 }
-// Derived class from BoxWeight
+
 class BoxCost extends BoxWeight {
 constructor(length, breadth, height, weight, shipmentCost) {
 super(length, breadth, height, weight);
 this.shipmentCost = shipmentCost;
 }
 }
-// Creating an object of BoxCost
+
 const myBoxCost = new BoxCost(10, 8, 5, 3.5, 20);
 console.log("Box Dimensions: ", myBoxCost.length, "x",
 myBoxCost.breadth, "x", myBoxCost.height);
